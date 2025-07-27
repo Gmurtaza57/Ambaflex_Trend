@@ -1,33 +1,34 @@
-# 📊 AmbaFlex Trend Dashboard
+# AmbaFlex Trend Dashboard
 
-A **Python/Tkinter-based PLC dashboard** for live monitoring of proximity sensor signals from conveyors.  
-This tool helps **Controls Engineers** and **Technicians** visualize sensor timing, troubleshoot issues faster, and reduce downtime.
-
----
-
-## 🚀 Features
-✅ **Live PLC Data Trending** – Plots proximity sensor values in real time using Matplotlib.  
-✅ **Pause & Scrollback** – Freeze the live graph and scroll back up to 10 seconds.  
-✅ **Multi-Sorter Support** – Add multiple PLCs and beds, switch between them dynamically.  
-✅ **Built-in PDF Viewer** – Opens a “README Before Calling Controls” guide directly in the app.  
-✅ **PyInstaller-Ready** – Easily package into an `.exe` for field deployment.  
+A Python/Tkinter-based PLC dashboard for live monitoring of proximity sensor signals from conveyors.  
+This tool helps Controls Engineers and Technicians visualize sensor timing, troubleshoot issues faster, and reduce downtime.
 
 ---
 
-## 📂 Project Structure
+## Features
 
-📁 Ambaflex_Trend/
+- Live PLC data trending using Matplotlib  
+- Pause and scrollback up to 10 seconds  
+- Multi-sorter support (configure multiple PLCs and beds)  
+- Built-in PDF viewer for quick reference documentation  
+- Compatible with PyInstaller for `.exe` packaging  
+
+---
+
+## Project Structure
+
+Ambaflex_Trend/
 ├── main.py # Main application code
 ├── readme.pdf # (Optional) Help guide shown in-app
-├── requirements.txt # Dependencies for installation
-└── README.md # You are here
+├── requirements.txt # Python dependencies
+└── README.md # This file
 
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
-All PLC setup is handled in the `PLC_CONFIG` list in **main.py**:
+PLC setup is defined in the `PLC_CONFIG` list in `main.py`:
 
 ```python
 PLC_CONFIG = [
@@ -36,62 +37,48 @@ PLC_CONFIG = [
     ("Sorter C", "192.168.0.12", ["B3001", "B3002", "B3003"]),
 ]
 
-    Sorter Name → Display label in the GUI
+    Sorter Name – Label shown in the interface
 
-    IP Address → PLC’s IP address (replace with your site’s)
+    IP Address – PLC IP address (replace with your own)
 
-    Bed Tags → Tag prefixes for the beds you want to trend
+    Bed Tags – Tag prefixes for the beds you want to trend
 
-👉 All values here are placeholders. Replace them with your own site’s PLC info.
-🛠 Installation
+Installation
 
-1️⃣ Clone the repo
+    Clone the repository:
 
 git clone https://github.com/YOURUSERNAME/Ambaflex_Trend.git
 cd Ambaflex_Trend
 
-2️⃣ Install dependencies
+Install dependencies:
 
 pip install -r requirements.txt
 
-Dependencies include:
+Run the application:
 
-    tkinter (bundled with Python on Windows)
+    python main.py
 
-    pycomm3 (for PLC communications)
+Usage
 
-    matplotlib (for real-time plotting)
+    Select a bed tag from the panel on the left.
 
-    PyMuPDF (to render PDFs)
+    View live proximity sensor signals on the graph.
 
-    Pillow (for image support)
+    Use the Pause button to stop updates and scroll back in time.
 
-3️⃣ Run the app
+    Open the built-in PDF viewer for the "README Before Calling Controls" guide.
 
-python main.py
+Building an Executable
 
-📊 How to Use
-
-1️⃣ Select a bed tag from the panel on the left.
-2️⃣ Watch the live proximity sensor graph update in real time.
-3️⃣ Click Pause to freeze the trend and scroll back (0.1s or 0.5s increments).
-4️⃣ Click README Before Calling Controls to open the PDF help guide.
-📦 Build an Executable
-
-This app is PyInstaller-compatible.
-To create a .exe for deployment:
+To create a standalone .exe file using PyInstaller:
 
 pyinstaller --onefile --noconsole main.py
 
-The compiled file will appear in the dist folder.
-🛡 Disclaimer
+The executable will be in the dist folder.
+Disclaimer
 
-This is an open-source framework for Controls & Automation teams.
+This is an open-source framework for Controls and Automation teams.
+No proprietary IPs or site-specific data are included. Configure your own PLCs and bed tags before using in production.
+Credits
 
-    🚫 No proprietary IPs, names, or credentials are included.
-
-    ✅ Configure your own PLCs and bed tags before using in production.
-
-👨‍💻 Credits
-
-Developed by the Controls Engineering Team – shared for the automation community.
+Developed by the Controls Engineering Team and shared for the automation community.
