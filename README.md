@@ -94,19 +94,10 @@ PLC_CONFIG = [
 
     Bed Tags → List of beds (prefixes for sensor tags)
 
-🔧 Tip: In a future version, this will move to a config.json file for easier editing.
-🔒 Lockout Feature
-
-The script includes a date-based lockout:
-
-if datetime.now() >= datetime(2025, 12, 30):
-    # Shows a lock screen and exits
-
-    Change or remove this section if you don’t want the lockout behavior.
 
 ▶ How to Run
 
-python main.py
+python main_file.py
 
 📦 Building into an EXE (Optional)
 
