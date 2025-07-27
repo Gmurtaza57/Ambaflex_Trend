@@ -1,86 +1,129 @@
-# AmbaFlex Trend Dashboard
+# AmbaFlex Proximity Dashboard
 
-A Python/Tkinter-based PLC dashboard for live monitoring of proximity sensor signals from conveyors.  
-This tool helps Controls Engineers and Technicians visualize sensor timing, troubleshoot issues faster, and reduce downtime.
-
----
-
-## Features
-
-- Live PLC data trending using Matplotlib  
-- Pause and scrollback up to 10 seconds  
-- Multi-sorter support (configure multiple PLCs and beds)  
-- Built-in PDF viewer for quick reference documentation  
-- Compatible with PyInstaller for `.exe` packaging  
+A **Tkinter-based real-time monitoring dashboard** for AmbaFlex beds that connects to Rockwell PLCs using `pycomm3`.  
+This tool plots **live proximity sensor trends** for selected beds, helping technicians and engineers quickly diagnose issues without needing PLC software access.
 
 ---
 
-## Project Structure
+## 🚀 Features
 
-Ambaflex_Trend/
+- 📊 **Live Graphing** of two proximity sensors (`PRX_OL1` and `PRX_OL2`) per bed  
+- ⏸ **Pause & Scroll Timeline** — freeze live updates and scroll back through data  
+- 📂 **Built-in PDF Viewer** — opens a `README` or support guide directly in the app  
+- 🖥 **Clean, Dark-Themed UI** for control rooms and industrial environments  
+- 🛠 **PLC Connectivity via pycomm3** for real-time data collection  
+- ⚠ **Lockout Timer** (optional) — can disable app after a set date for version control
+
+---
+
+## 🗂 Project Structure
+
+📁 AmbaFlex-Proximity-Dashboard
 ├── main.py # Main application code
-├── readme.pdf # (Optional) Help guide shown in-app
+├── readme.pdf # PDF shown in the in-app viewer
 ├── requirements.txt # Python dependencies
-└── README.md # This file
+├── README.md # You are reading this file
+└── (optional) config.json # External config for PLC IPs and beds (future-friendly)
 
 
 ---
 
-## Configuration
+## ⚙️ Requirements
 
-PLC setup is defined in the `PLC_CONFIG` list in `main.py`:
+- **Python 3.8+**
+- The following Python packages (install via pip):
+  ```bash
+  pip install pycomm3 matplotlib pillow pymupdf
 
-```python
+    A reachable Rockwell PLC (ControlLogix or CompactLogix)
+
+    Configured PLC tags matching the naming convention:
+
+    <BED_TAG>_PRX_OL1
+    <BED_TAG>_PRX_OL2
+
+🏗 How It Works
+
+    Select a Sorter and Bed Tag from the buttons on the left panel.
+
+    The dashboard connects to the PLC and streams live proximity values.
+
+    Two lines are drawn on the graph:
+
+        Blue → PRX_OL1
+
+        Green → PRX_OL2
+
+    You can pause the graph and scroll back in time using the timeline controls.
+
+📖 App Layout
+
+    Header Controls:
+
+        ⏸ Pause Button → stops live updates and allows scrollback
+
+        📄 README Button → opens an embedded PDF viewer for instructions/support
+
+    Bed Selection Panel:
+
+        Displays Sorter Names (e.g., “Sorter A”, “Sorter B”)
+
+        Each sorter has buttons for configured Bed Tags
+
+    Main Graph Area:
+
+        Shows real-time proximity sensor trends
+
+    Footer:
+
+        Customizable branding message (e.g., Powered by Controls Team)
+
+📝 Configuration
+
+Inside the code, there’s a PLC_CONFIG list:
+
 PLC_CONFIG = [
     ("Sorter A", "192.168.0.10", ["B1001", "B1002", "B1003"]),
     ("Sorter B", "192.168.0.11", ["B2001", "B2002", "B2003"]),
     ("Sorter C", "192.168.0.12", ["B3001", "B3002", "B3003"]),
 ]
 
-Sorter Name
+    Sorter Name → Label shown in the UI
 
-Label shown in the interface.
-IP Address
+    PLC IP → The IP of the PLC for that sorter
 
-PLC IP address (replace with your own).
-Bed Tags
+    Bed Tags → List of beds (prefixes for sensor tags)
 
-Tag prefixes for the beds you want to trend.
-Installation
-1. Clone the repository
+🔧 Tip: In a future version, this will move to a config.json file for easier editing.
+🔒 Lockout Feature
 
-git clone https://github.com/YOURUSERNAME/Ambaflex_Trend.git
-cd Ambaflex_Trend
+The script includes a date-based lockout:
 
-2. Install dependencies
+if datetime.now() >= datetime(2025, 12, 30):
+    # Shows a lock screen and exits
 
-pip install -r requirements.txt
+    Change or remove this section if you don’t want the lockout behavior.
 
-3. Run the application
+▶ How to Run
 
 python main.py
 
-Usage
+📦 Building into an EXE (Optional)
 
-    Select a bed tag from the panel on the left.
+Use PyInstaller if you want a standalone .exe:
 
-    View live proximity sensor signals on the graph.
-
-    Use the Pause button to stop updates and scroll back in time.
-
-    Open the built-in PDF viewer for the "README Before Calling Controls" guide.
-
-Building an Executable
-
-To create a standalone .exe file using PyInstaller:
-
+pip install pyinstaller
 pyinstaller --onefile --noconsole main.py
 
-The executable will be in the dist folder.
-Disclaimer
+✅ The resource_path() helper is already included for PyInstaller compatibility.
+⚠ Notes & Disclaimer
 
-This is an open-source framework for Controls and Automation teams.
-No proprietary IPs or site-specific data are included. Configure your own PLCs and bed tags before using in production.
-Credits
+    No proprietary IPs or site-specific names are included.
 
-Developed by the Controls Engineering Team and shared for the automation community.
+    Replace placeholder IPs and Bed Tags with your own.
+
+    This tool is intended for educational and troubleshooting purposes — use responsibly on production systems.
+
+📜 License
+
+MIT License — Free to use, modify, and distribute.
