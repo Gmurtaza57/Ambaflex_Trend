@@ -35,7 +35,7 @@ PLC_CONFIG = [
     ("Sorter A", "192.168.0.10", ["B1001", "B1002", "B1003"]),
     ("Sorter B", "192.168.0.11", ["B2001", "B2002", "B2003"]),
     ("Sorter C", "192.168.0.12", ["B3001", "B3002", "B3003"]),
-]
+]```
 
     Sorter Name – Label shown in the interface
 
