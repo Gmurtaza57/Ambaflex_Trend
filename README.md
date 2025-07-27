@@ -35,28 +35,30 @@ PLC_CONFIG = [
     ("Sorter A", "192.168.0.10", ["B1001", "B1002", "B1003"]),
     ("Sorter B", "192.168.0.11", ["B2001", "B2002", "B2003"]),
     ("Sorter C", "192.168.0.12", ["B3001", "B3002", "B3003"]),
-]```
+]
 
-    Sorter Name – Label shown in the interface
+Sorter Name
 
-    IP Address – PLC IP address (replace with your own)
+Label shown in the interface.
+IP Address
 
-    Bed Tags – Tag prefixes for the beds you want to trend
+PLC IP address (replace with your own).
+Bed Tags
 
+Tag prefixes for the beds you want to trend.
 Installation
-
-    Clone the repository:
+1. Clone the repository
 
 git clone https://github.com/YOURUSERNAME/Ambaflex_Trend.git
 cd Ambaflex_Trend
 
-Install dependencies:
+2. Install dependencies
 
 pip install -r requirements.txt
 
-Run the application:
+3. Run the application
 
-    python main.py
+python main.py
 
 Usage
 
