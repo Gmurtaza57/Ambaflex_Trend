@@ -1,7 +1,7 @@
 # 📊 AmbaFlex Trend Dashboard
 
 A **Python/Tkinter-based PLC dashboard** for live monitoring of proximity sensor signals from conveyors.  
-This tool helps **Controls Engineers** and **Technicians** visualize sensor timing, troubleshoot issues faster, and reduce downtime.  
+This tool helps **Controls Engineers** and **Technicians** visualize sensor timing, troubleshoot issues faster, and reduce downtime.
 
 ---
 
@@ -20,7 +20,7 @@ This tool helps **Controls Engineers** and **Technicians** visualize sensor timi
 ├── main.py # Main application code
 ├── readme.pdf # (Optional) Help guide shown in-app
 ├── requirements.txt # Dependencies for installation
-├── README.md # You are here
+└── README.md # You are here
 
 
 ---
@@ -42,7 +42,7 @@ PLC_CONFIG = [
 
     Bed Tags → Tag prefixes for the beds you want to trend
 
-👉 All values here are placeholders. Replace with your own site’s PLC info.
+👉 All values here are placeholders. Replace them with your own site’s PLC info.
 🛠 Installation
 
 1️⃣ Clone the repo
@@ -78,7 +78,8 @@ python main.py
 4️⃣ Click README Before Calling Controls to open the PDF help guide.
 📦 Build an Executable
 
-The app is PyInstaller-compatible. To create a .exe for deployment:
+This app is PyInstaller-compatible.
+To create a .exe for deployment:
 
 pyinstaller --onefile --noconsole main.py
 
@@ -94,11 +95,3 @@ This is an open-source framework for Controls & Automation teams.
 👨‍💻 Credits
 
 Developed by the Controls Engineering Team – shared for the automation community.
-
-
----
-
-✅ Just **copy-paste** this into your GitHub “Add a README file” section or as `README.md` in your repo.  
-
-👉 Want me to also draft a **`requirements.txt`** file for you so users can install dependencies easily?
-
