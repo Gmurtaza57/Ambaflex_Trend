@@ -50,7 +50,7 @@ To create a standalone app:
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile main_file.py
+pyinstaller --onefile --add-data "readme.pdf;."main_file.py
 ```
 
 ---
